@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aleksei Shabalin - Senior Performance Marketing Manager</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-light: #60a5fa;
+            --primary-dark: #1d4ed8;
+            --secondary: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --dark: #0f172a;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* Animated Chart Avatar */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            margin: 0 auto 20px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chart-svg {
+            width: 60%;
+            height: 60%;
+        }
+        .chart-svg .bar {
+            animation: growBar 0.8s ease-out forwards;
+            transform-origin: bottom;
+            transform: scaleY(0);
+        }
+        .chart-svg .bar-1 { animation-delay: 0.1s; }
+        .chart-svg .bar-2 { animation-delay: 0.2s; }
+        .chart-svg .bar-3 { animation-delay: 0.3s; }
+        
+        @keyframes growBar {
+            from { transform: scaleY(0); }
+            to { transform: scaleY(1); }
+        }
+
+        /* Premium Typography for H1 */
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--primary-light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px 30px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+        
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-item a:hover {
+            color: var(--primary);
+        }
+        
+        /* Section Styles */
+        section {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            padding: 40px;
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            color: var(--secondary);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+        }
+        
+        /* Summary Section */
+        .summary p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+            color: #334155;
+        }
+        
+        /* KPI Panel Styles */
+        .kpi-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        .kpi-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .kpi-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.1;
+        }
+        .kpi-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-top: 5px;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 35px;
+            padding-left: 25px;
+            border-left: 3px solid #e2e8f0;
+            position: relative;
+        }
+        .experience-item:last-child {
+            margin-bottom: 0;
+            border-left: 3px solid transparent; /* Hide border for the last item */
+        }
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border: 3px solid var(--primary);
+            border-radius: 50%;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .job-title { font-size: 1.3rem; font-weight: 600; color: var(--secondary); }
+        .company { font-size: 1.1rem; color: var(--primary); margin-bottom: 8px; font-weight: 500; }
+        .job-period { background: #eef2ff; color: var(--primary-dark); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; flex-shrink: 0; }
+        .job-description { font-style: italic; margin-bottom: 15px; color: var(--gray); font-size: 0.95rem; }
+        
+        .achievements { list-style: none; padding-left: 0; }
+        .achievements li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .achievements li:before { content: "•"; color: var(--primary); position: absolute; left: 0; font-weight: bold; font-size: 1.2rem; }
+        
+        /* Skills Section */
+        .skills-container { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 20px; }
+        .skill-category { background: #f8fafc; border-radius: 8px; padding: 25px; border: 1px solid #e2e8f0; }
+        .skill-title { color: var(--primary); font-size: 1.3rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .skill-title i { font-size: 1.1rem; }
+        .skill-list { list-style-type: none; color: #334155; }
+        
+        /* Education & Languages */
+        .education-languages { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .education-item, .language-item { margin-bottom: 10px; }
+        .education-item strong, .language-item strong { color: var(--secondary); }
+        
+        /* GET IN TOUCH SECTION */
+        .contact-actions-section { background: linear-gradient(135deg, #f0f9ff, #e0f2fe); text-align: center; }
+        .contact-actions-section p { font-size: 1.1rem; color: var(--secondary); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .contact-buttons-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 800px; margin: 0 auto; }
+        .btn-contact { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 15px 20px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
+        .btn-contact:hover { background-color: var(--primary-dark); transform: translateY(-3px); box-shadow: 0 7px 10px rgba(37, 99, 235, 0.2); }
+        .btn-contact.secondary { background-color: var(--secondary); }
+        .btn-contact.secondary:hover { background-color: var(--dark); }
+
+        /* Footer */
+        footer { background: var(--secondary); color: var(--gray); text-align: center; padding: 30px 0; margin-top: 50px; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .title { font-size: 1.2rem; }
+            section { padding: 30px 20px; }
+            .job-header { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-content">
+            <div class="profile-img">
+                <svg class="chart-svg" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg"><rect class="bar bar-1" x="10" y="50" width="20" height="30" fill="currentColor"/><rect class="bar bar-2" x="40" y="30" width="20" height="50" fill="currentColor"/><rect class="bar bar-3" x="70" y="10" width="20" height="70" fill="currentColor"/></svg>
+            </div>
+            <h1>Aleksei Shabalin</h1>
+            <div class="title">Senior Performance Marketing Manager</div>
+            <div class="contact-info">
+                <div class="contact-item"><i class="fas fa-envelope"></i><a href="mailto:shabalinad7@gmail.com">shabalinad7@gmail.com</a></div>
+                <div class="contact-item"><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/alexshabalin1/" target="_blank">linkedin.com/in/alexshabalin1</a></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Summary Section -->
+        <section class="summary">
+            <h2 class="section-title">Professional Summary</h2>
+            <p>A data-driven Senior Performance Marketing Manager with 9+ years of experience scaling EdTech & digital products across the US and Eastern Europe. Proven ability to drive significant revenue growth by building high-performing teams, scaling paid acquisition, and optimizing the full funnel to consistently improve ROI and CAC.</p>
+            
+            <div class="kpi-panel">
+                <div class="kpi-item">
+                    <span class="kpi-number" data-target="11">0</span>
+                    <p class="kpi-label">Revenue Growth</p>
+                </div>
+                <div class="kpi-item">
+                    <span class="kpi-number" data-target="60">0</span>
+                    <p class="kpi-label">Monthly Budget</p>
+                </div>
+                <div class="kpi-item">
+                    <span class="kpi-number" data-target="20">0</span>
+                    <p class="kpi-label">CPQL Reduction</p>
+                </div>
+                <div class="kpi-item">
+                    <span class="kpi-number" data-target="11">0</span>
+                    <p class="kpi-label">Team Leadership</p>
+                </div>
+            </div>
+            
+            <p>Open to global remote opportunities. Available for EU relocation for a compelling role.</p>
+        </section>
+
+        <!-- Experience Section (Full content) -->
+        <section class="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <!-- All 7 experience items are here... -->
+            <div class="experience-item">
+                <div class="job-header">
+                    <div><div class="job-title">Senior Performance & Growth Marketing Manager</div><div class="company">GoDigital, Remote</div></div>
+                    <div class="job-period">Sep 2024 - Present</div>
+                </div>
+                <div class="job-description">Top EdTech-focused marketing agency. Owned the agency's in-house B2B acquisition strategy, building and managing the full marketing funnel to drive new client growth.</div>
+                <ul class="achievements">
+                    <li>Launched and scaled a multi-channel B2B lead generation engine from scratch (Meta & Google Ads), creating funnels that performed 1.5x better than industry benchmarks and building performance dashboards in Looker/GA4 to track full-funnel KPIs.</li>
+                    <li>Reduced Cost Per Qualified Lead (CPQL) by 15-20% through a framework of A/B testing ad creatives, audiences, and landing pages.</li>
+                    <li>Drove 40% lead growth by building a scalable testing framework and re-allocating the budget to winning channels, while keeping ROI stable.</li>
+                    <li>Boosted website conversion rates by 15% by implementing a CRO framework (A/B testing, heatmaps) and leading the rebuild of key landing pages.</li>
+                    <li>Added a consistent stream of 30+ high-quality inbound leads/month and diversified lead sources by developing SEO and Partner Marketing as supporting channels.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="job-header">
+                    <div><div class="job-title">Performance & Growth Marketing Manager</div><div class="company">EatWisely, Remote</div></div>
+                    <div class="job-period">Feb 2021 - Jul 2024</div>
+                </div>
+                <div class="job-description">Fast-growing EdTech startup with 750K+ audience across 9+ countries (Eastern Europe, US). Offers digital nutrition programs and well-being courses.</div>
+                <ul class="achievements">
+                    <li>Drove 11x revenue growth in 18 months by scaling multi-channel paid acquisition (Meta, Google, TikTok) and optimizing the full-funnel performance.</li>
+                    <li>Built and led a high-performing team of 11+ marketing specialists that successfully scaled campaigns across 6+ paid channels.</li>
+                    <li>Managed and optimized $60K+ monthly budgets, increasing ROAS and maintaining stable CAC at scale.</li>
+                    <li>Reduced customer acquisition cost by 17% by building and A/B testing 10+ automated sales funnels.</li>
+                    <li>Grew organic channels to 750K+ followers (600K TikTok, 130K Instagram, 20K Telegram), reaching over 3M people monthly and driving direct sales.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="job-header">
+                    <div><div class="job-title">Growth Marketing Consultant</div><div class="company">Self-Employed</div></div>
+                    <div class="job-period">Jun 2019 - Jan 2021</div>
+                </div>
+                <div class="job-description">Advised early-stage EdTech startups on Go-to-Market (GTM) strategy, user acquisition funnels, and scalable growth tactics.</div>
+                <ul class="achievements">
+                    <li>Developed and executed an organic growth strategy for a client's personal brand, attracting 500K+ followers through viral content which led to a fully booked client schedule without any ad spend.</li>
+                    <li>Engineered several viral marketing campaigns for startups, securing over 40+ media features (3M+ total reach) and driving initial sales and user acquisition.</li>
+                    <li>Advised EdTech startups on building low-cost acquisition funnels, helping them generate their first leads and validate product-market fit before investing in paid advertising.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="job-header">
+                    <div><div class="job-title">Performance Marketing Manager</div><div class="company">BIO Digital, Eastern Europe</div></div>
+                    <div class="job-period">Sep 2018 - May 2019</div>
+                </div>
+                <div class="job-description">Digital performance agency focused on EdTech brands across Eastern Europe, US, and Canada.</div>
+                <ul class="achievements">
+                    <li>Launched 53 Facebook Ads campaigns across 7 countries, driving international expansion and helping 4 clients enter the top-10 by sales in the franchise network.</li>
+                    <li>Built and trained an in-house marketing team to launch and scale paid campaigns across key channels.</li>
+                    <li>Delivered a full-funnel campaign for a fitness tech client — doubled revenue and reduced CPL by 30%.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="job-header">
+                    <div><div class="job-title">Performance Marketing Manager</div><div class="company">Malikspace, Eastern Europe</div></div>
+                    <div class="job-period">Aug 2017 - Aug 2018</div>
+                </div>
+                <div class="job-description">Educational event & marketing agency active in 40 cities across Eastern Europe. Known for top-tier speakers like Brian Tracy.</div>
+                <ul class="achievements">
+                    <li>Managed and optimized $10K/month performance marketing — reduced CPL by ~20% and boosted qualified leads by 1.5x.</li>
+                    <li>Launched and coordinated multi-channel campaigns for major events — Brian Tracy seminar (700+ attendees) and a networking forum (400+ guests).</li>
+                    <li>Hired and led a high-performing team of 3 marketers to support campaign execution.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="job-header">
+                    <div><div class="job-title">Performance Marketing Specialist</div><div class="company">Self-Employed</div></div>
+                    <div class="job-period">Oct 2016 - Jul 2017</div>
+                </div>
+                <div class="job-description">Launched 23 full-cycle advertising campaigns for coaching and corporate training clients — created campaign strategies, ad content, and visual creatives tailored to each niche.</div>
+                <ul class="achievements">
+                    <li>Achieved outstanding ROMI: 2600% (massage workshops) and 553% (tax seminar) by optimizing ad funnels and refining targeting strategies.</li>
+                    <li>Provided strategic consulting on SMM strategy, paid traffic, and content funnels — also published 3 expert-level articles in leading media, sharing insights on social ad performance and growth mechanics.</li>
+                </ul>
+            </div>
+            <div class="experience-item">
+                <div class="job-header">
+                    <div><div class="job-title">Performance Marketing Specialist</div><div class="company">SMMashing Media, Eastern Europe</div></div>
+                    <div class="job-period">May 2016 - Sep 2016</div>
+                </div>
+                <div class="job-description">Boutique digital agency specializing in social media marketing for small and medium businesses.</div>
+                <ul class="achievements">
+                    <li>Launched Paid Social ads — improved campaign performance and reduced CPL by 10%.</li>
+                    <li>Supported the Digital team with market research, competitor analysis, and campaign documentation.</li>
+                    <li>Helped organize the Business Weekend 2016 conference (250+ attendees) — contributed to event promotion and logistics.</li>
+                    <li>Created a social media contest that attracted 700+ new followers to a client's account.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Skills, Education, Contact... sections -->
+        <section class="skills">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="skills-container">
+                <div class="skill-category"><h3 class="skill-title"><i class="fas fa-bullseye"></i> Performance Marketing & Paid Acquisition</h3><p class="skill-list">Funnel Optimization, User Acquisition, GTM, Meta Ads (Facebook/Instagram), TikTok Ads, LinkedIn Ads, Google Ads (SEM, PMax), Budget Management (€50K+), ROI & ROAS Optimization.</p></div>
+                <div class="skill-category"><h3 class="skill-title"><i class="fas fa-chart-line"></i> Growth & Analytics</h3><p class="skill-list">Conversion Rate Optimization (CRO), A/B Testing, Google Analytics (GA4), GTM, Looker/Tableau, Data Analysis, Marketing Automation, HubSpot, SEO (SEMrush), Partner Marketing.</p></div>
+                <div class="skill-category"><h3 class="skill-title"><i class="fas fa-users"></i> Leadership & Project Management</h3><p class="skill-list">Team Leadership (11+), Hiring & Mentoring, Cross-Functional Collaboration, Project Management (Jira, Trello, Asana), AI in Marketing (ChatGPT, Midjourney).</p></div>
+            </div>
+        </section>
+        <section class="education-languages-section">
+            <div class="education-languages">
+                <div class="education"><h3 class="section-title">Education</h3><div class="education-item"><strong>South Ural State University, Russia</strong><div>Bachelor's Degree in Marketing and Innovation Management, 2019</div></div></div>
+                <div class="languages"><h3 class="section-title">Languages</h3><div class="language-item"><strong>English:</strong> B2 – Full Professional Proficiency</div><div class="language-item"><strong>Polish:</strong> B2 – Full Professional Proficiency</div><div class="language-item"><strong>Russian:</strong> Native</div></div>
+            </div>
+        </section>
+        <section class="contact-actions-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p>I'm open to new opportunities and collaborations. Feel free to reach out or download my full resume.</p>
+            <div class="contact-buttons-container">
+                <a href="https://www.linkedin.com/in/alexshabalin1/" target="_blank" class="btn-contact"><i class="fab fa-linkedin"></i> Message on LinkedIn</a>
+                <a href="mailto:shabalinad7@gmail.com" class="btn-contact"><i class="fas fa-envelope"></i> Send an Email</a>
+                <a href="https://t.me/alex_shabalin" target="_blank" class="btn-contact"><i class="fab fa-telegram"></i> Chat on Telegram</a>
+                <a href="https://drive.google.com/file/d/1TjBKyLRXGRvybEvX1ZAAWnhiyI_jaFd9/view?usp=sharing" download class="btn-contact secondary"><i class="fas fa-file-arrow-down"></i> Download Resume</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Aleksei Shabalin. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            // --- KPI Counter Animation ---
+            const kpiPanel = document.querySelector('.kpi-panel');
+            const counters = document.querySelectorAll('.kpi-number');
+
+            const animateKpi = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const duration = 1500; // Animation duration in ms
+                
+                let start = null;
+                const step = (timestamp) => {
+                    if (!start) start = timestamp;
+                    const progress = Math.min((timestamp - start) / duration, 1);
+                    const current = Math.floor(progress * target);
+                    counter.innerText = current;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    } else {
+                         // Add symbols after animation completes
+                        const labelText = counter.nextElementSibling.innerText;
+                        if (labelText.includes("Growth")) counter.innerText = target + "x";
+                        else if (labelText.includes("Budget")) counter.innerText = "$" + target + "K+";
+                        else if (labelText.includes("CPQL")) counter.innerText = "-" + target + "%";
+                        else if (labelText.includes("Leadership")) counter.innerText = target + "+";
+                    }
+                };
+                window.requestAnimationFrame(step);
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        counters.forEach(animateKpi);
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, {
+                threshold: 0.5 // Start animation when 50% of the panel is visible
+            });
+
+            if(kpiPanel) {
+                observer.observe(kpiPanel);
+            }
+        });
+    </script>
+</body>
+</html>
